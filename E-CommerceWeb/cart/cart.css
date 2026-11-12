@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#item{
+    height: 300px;
+    width: 1000px;
+    display: flex;
+    border: 1px solid grey;
+    margin: 15px auto;
+    border-radius: 25px;
+}
+#item:hover{
+    border: 2px solid black;
+}
+.image{
+    height: 100%;
+    width: 300px;
+}
+.details{
+    height: 100%;
+    width: 500px;
+    padding: 20px 25px;
+    p{
+        padding: 10px 15px 0px 0px;
+    }
+}
+#btn{
+    height: 100%;
+    width: 200px;
+    align-content: center;
+    #remove{
+        height: 50px;
+        width: 175px;
+        border-radius: 8px;
+        border: none;
+        background-color: red;
+        color: white;
+        border: 1px solid white;
+        font-size: 16px;
+    }
+    #remove:hover{
+        border: 1px solid black;
+        color: black;
+    }
+}
+
+#totalPrice{
+    height: 80px;
+    width: 800px;
+    margin: 15px auto;
+    text-align: center;
+}

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         if(selectedProduct){
             document.getElementById("section1").innerHTML= `
                 <div id="pic">
-                    <img src="${selectedProduct.images}" alt="">
+                    <img src="${selectedProduct.thumbnail}" alt="">
                 </div>    
                 <div id="description">
                     <br>
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                     <p><b>Category :</b>&nbsp ${selectedProduct.category}</p><br>
                     <p><b>Description :</b>&nbsp ${selectedProduct.description}</p><br>
                     <b>Price :</b>&nbsp ₹<p>${Math.floor(selectedProduct.price*95)}</p><br><br>
-                    <button id="cart">Add to Cart</button>
+                    <button id="addTOcart">Add to Cart</button>
                     <button id="home">Back to Home</button>
                 </div>
             `;
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded",()=>{
                 window.location.href="../home/home.html"
             });
 
-            document.getElementById("cart").addEventListener("click",()=>{
-                addingToCart(productDetails);
+            document.getElementById("addTOcart").addEventListener("click",()=>{
+                addingToCart(selectedProduct);
             })
 
         }else{
@@ -58,4 +58,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 function addingToCart(product) {
     console.log(product);
+    let cartItems = JSON.parse(localStorage.getItem("Cart")) || [];
+    cartItems.push(product);
+    localStorage.setItem("Cart",JSON.stringify(cartItems));
+    alert("Product added successfully !!!!");
 }
