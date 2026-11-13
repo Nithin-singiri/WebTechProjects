@@ -35,17 +35,20 @@ function displayCart() {
                     <p>Price : ₹ ${Math.floor(v.price*95)}</p>
                 </div>
                 <div id="btn">
-                    <button id="remove">Remove</button>
+                    <button id="remove" onclick="removeFromCart(${i})">Remove</button>
                 </div>
             `
             cartContent.append(newElement);
             totalPrice.innerHTML = `
                 <h1>Total price : ${totalBill}</h1>
             `
-            document.getElementById("remove").addEventListener("click",()=>{
-                deleteItem(i);
-            });
         });
     }
 }
 
+function removeFromCart(index) {
+    let cartItems = JSON.parse(localStorage.getItem("Cart"));
+    cartItems.splice(index,1);
+    localStorage.setItem("Cart",JSON.stringify(cartItems));
+    window.location.reload();
+}
